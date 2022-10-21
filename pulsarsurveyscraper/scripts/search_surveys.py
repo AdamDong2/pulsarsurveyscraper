@@ -5,6 +5,7 @@ import os
 import re
 import sys
 
+
 import numpy as np
 from astropy import units as u
 from astropy.coordinates import SkyCoord
@@ -14,12 +15,21 @@ import pulsarsurveyscraper
 import pulsarsurveyscraper.output
 
 
+import numpy as np
+from astropy import units as u
+from astropy.coordinates import SkyCoord
+from requests import Request
+
+import pulsarsurveyscraper
+import csv
+import numpy
+import chime_fn
+import pulsarsurveyscraper.output
 def main():
     pulsarsurveyscraper.log.setLevel("WARNING")
     parser = argparse.ArgumentParser(
         formatter_class=argparse.ArgumentDefaultsHelpFormatter
     )
-
     parser.add_argument("coord", nargs="+", help="Coordinates to search")
     parser.add_argument("-d", "--dm", type=float, help="DM to match")
     parser.add_argument("--dmtol", default=10, type=float, help="DM tolerance")

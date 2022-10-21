@@ -186,4 +186,90 @@ Surveys = {
         "period_units": "ms",
         "start_row": 1,
     },
+    # "CHIME/Pulsar_obs": {
+    #     "type": "XB",
+    #     "pulsar_column": "col2",
+    #     "ra_column": "col3",
+    #     "dec_column": "col4",
+    #     "DM_column": "col5",
+    #     "ra_unit": "deg",
+    #     "dec_unit": "deg",
+    #     "filename": "chime_pulsar_observations.csv",
+    #     "url": "nil"
+    # },
+    # "McGillMagnetars": {
+    #     "url": "http://www.physics.mcgill.ca/~pulsar/magnetar/TabO1.txt",
+    #     "type": "CSV",
+    #     "pulsar_column": 0,
+    #     "period_column": 1,
+    #     "DM_column": 13,
+    #     "ra_column": 21,
+    #     "dec_column": 22,
+    #     "period_units": "s",
+    #     "ra_unit": "deg",
+    #     "dec_unit": "deg",
+    #     "start_row": 2,
+    # },
+    # "LMXB_RK": {
+    #     "type": "RK",
+    #     "pulsar_column": "col1",
+    #     "ra_column": "col4",
+    #     "dec_column": "col4",
+    #     "ra_unit": "hour",
+    #     "dec_unit": "deg",
+    #     "filename": "RKcat_lmxb.txt",
+    #     "url": "nil"
+    # },
+    # "RK_catalysmic": {
+    #     "type": "RK",
+    #     "pulsar_column": "col1",
+    #     "ra_column": "col4",
+    #     "dec_column": "col4",
+    #     "ra_unit": "hour",
+    #     "dec_unit": "deg",
+    #     "filename": "RKcat_cb.txt",
+    #     "url": "nil"
+    # },
+    #  "RK_related": {
+    #     "type": "RK",
+    #     "pulsar_column": "col1",
+    #     "ra_column": "col4",
+    #     "dec_column": "col4",
+    #     "ra_unit": "hour",
+    #     "dec_unit": "deg",
+    #     "filename": "RKcat_related.txt",
+    #     "url": "nil"
+    #  },
+    # "LMXB": {
+    #     "type": "XB",
+    #     "pulsar_column": "col2",
+    #     "ra_column": "col3",
+    #     "dec_column": "col4",
+    #     "ra_unit": "hour",
+    #     "dec_unit": "deg",
+    #     "filename": "LMXB.txt",
+    #     "url": "nil"
+    # },
+    # "HMXB": {
+    #     "type": "XB",
+    #     "pulsar_column": "col2",
+    #     "ra_column": "col3",
+    #     "dec_column": "col4",
+    #     "ra_unit": "hour",
+    #     "dec_unit": "deg",
+    #     "filename": "HMXB.txt",
+    #     "url": "nil"
+    # },
+    # "GC": {
+    #     "type": "XB",
+    #     "pulsar_column": "col1",
+    #     "ra_column": "col2",
+    #     "dec_column": "col3",
+    #     "ra_unit": "hour",
+    #     "dec_unit": "deg",
+    #     "filename": "GC_MW.txt",
+    #     "url": "nil"
+    # },
+
+
 }

@@ -165,9 +165,11 @@ def main():
     parser.add_argument(
         "-radec_only", action="store_true", default=False, help="Search only ra dec"
     )
+    print("Loading pulsar table...")
     pulsar_table = pulsarsurveyscraper.PulsarTable()
     args = parser.parse_args()
     radec_only = args.radec_only
+    print("Loading new sources...")
     chime_csv = chime_fn.load_new_sources(args.fn)
 
     org_file_name = preamble(args.fn)

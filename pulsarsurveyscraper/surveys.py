@@ -123,10 +123,12 @@ Surveys = {
         "url": "http://astro.phys.wvu.edu/rratalog",
         "type": "HTML",
         "pulsar_column": 0,
-        "period_column": 1,
+        "period_column": 4,
         "DM_column": 3,
-        "start_row": 2,
+        "start_row": 1,
         "period_units": "s",
+        "ra_column": 1,
+        "dec_column": 2,
     },
     "CHIME": {
         "url": "http://catalog.chime-frb.ca/galactic",
@@ -137,17 +139,17 @@ Surveys = {
         "ra_key": ["ra", "value"],
         "dec_key": ["dec", "value"],
     },
-   "FAST": {
-       "url": "https://crafts.bao.ac.cn/pulsar/",
-       "type": "HTML",
-       "pulsar_column": 1,
-       "period_column": 4,
-       "DM_column": 5,
-       "start_row": 1,
-       "period_units": "ms",
-       "ra_column": 2,
-       "dec_column": 3,
-   },
+    "CRAFTS": {
+        "url": "http://groups.bao.ac.cn/ism/CRAFTS/202203/t20220310_683697.html",
+        "type": "HTML",
+        "pulsar_column": 1,
+        "period_column": 4,
+        "DM_column": 5,
+        "start_row": 1,
+        "period_units": "ms",
+        "ra_column": 2,
+        "dec_column": 3,
+    },
     "FAST-GPPS": {
         "url": "http://zmtt.bao.ac.cn/GPPS/GPPSnewPSR.html",
         "type": "HTML",
@@ -271,5 +273,15 @@ Surveys = {
     #     "url": "nil"
     # },
 
-
+    "VAST": {
+        "url": "https://www.vast-survey.org/Pulsars/",
+        "type": "HTML",
+        "pulsar_column": 1,
+        "period_column": 4,
+        "DM_column": 5,
+        "ra_column": 2,
+        "dec_column": 3,
+        "period_units": "ms",
+        "start_row": 1,
+    },
 }

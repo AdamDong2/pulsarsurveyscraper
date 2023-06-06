@@ -95,7 +95,7 @@ def generate_org(result,result_10,source,ra,dec,dm,fn,org_file_name="test.org"):
 
     all_files = os.listdir(dirname)
     for verification_im in all_files:
-        if "zooniverse.png" in verification_im:
+        if "combined.png" in verification_im:
             im_path = path.join(dirname,verification_im)
             write_image_org(org_file_name,im_path)
 

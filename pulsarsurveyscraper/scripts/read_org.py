@@ -6,7 +6,8 @@ import yaml
 from PIL import Image
 import random
 from astropy.coordinates import SkyCoord as sk
-def generate_images(pc,num_stack=5):
+import os
+def generate_images(pc,num_stack=2):
     image_arr = pc.image_array
     outfn = pc.name+".jpg"
     if len(image_arr)<num_stack:
@@ -61,6 +62,7 @@ with open(org_file,'r') as org_f:
             if i>2:
                 pc = PulsarCandidate(name,ra,dec,dm,file_array,hmsdms_str[0],hmsdms_str[1])
                 pulsar_candidates.append(pc)
+                print(f"Added {pc.name} to the list with ra={pc.ra}, dec={pc.dec}, dm={pc.dm}")
             #reset everything
             ra = 0
             dec = 0
@@ -85,9 +87,16 @@ with open(org_file,'r') as org_f:
     #the last source would never get registered so lets register that here
     pc = PulsarCandidate(name,ra,dec,dm,file_array,hmsdms_str[0],hmsdms_str[1])
     pulsar_candidates.append(pc)
+    print(f"Added {pc.name} to the list with ra={pc.ra}, dec={pc.dec}, dm={pc.dm}")
 
 def write_yaml(pulsar_candidate,outfn):
+    #remove the if it exists
+    if os.path.exists(outfn):
+        os.remove(outfn)
+    pulsar_candidate.dm=round(pulsar_candidate.dm,2)
+
     out_dict = {pulsar_candidate.name:
+                #set dm to 2sf
                 {"dm":{"value":pulsar_candidate.dm,"error_low":0,"error_high":0},
                 "ra":{"value":pulsar_candidate.ra_hms},
                 "dec":{"value":pulsar_candidate.dec_dms},

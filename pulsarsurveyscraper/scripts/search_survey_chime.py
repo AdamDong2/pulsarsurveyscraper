@@ -23,8 +23,9 @@ def write_source_location(filename,ra,dec,dm):
     with open(filename,'a') as f:
         f.write("|ra|dec|dm|\n")
         f.write(f"|{ra}|{dec}|{dm}|\n")
-def write_image_org(filename,imagename):
+def write_image_org(filename,imagename,height = 4):
     with open(filename,'a') as f:
+        f.write(f"#+ATTR_LATEX: :height {height}cm\n")
         f.write(f"[[file:{imagename}]]\n")
 def write_title_org(filename,title,level=1):
     with open(filename,'a') as f:
@@ -74,6 +75,8 @@ def generate_org(result,result_10,source,ra,dec,dm,fn,org_file_name="test.org"):
         d = '+'+str(int(dec)).zfill(2)
     else:
         d = str(int(dec)).zfill(3)
+        if d[0]!='-':
+            d = '-'+d[:2]
     Jname = f"J{r}{d}"
     write_title_org(org_file_name,Jname)
     write_source_location(org_file_name,ra,dec,dm)
@@ -90,14 +93,14 @@ def generate_org(result,result_10,source,ra,dec,dm,fn,org_file_name="test.org"):
     nsp = path.join(dirname,ns_name)
     #copy the figures over
     #write it out in org file
-    write_image_org(org_file_name,ap)
-    write_image_org(org_file_name,nsp)
+    write_image_org(org_file_name,ap,height=6)
+    write_image_org(org_file_name,nsp,height=6)
 
     all_files = os.listdir(dirname)
     for verification_im in all_files:
         if "combined.png" in verification_im:
             im_path = path.join(dirname,verification_im)
-            write_image_org(org_file_name,im_path)
+            write_image_org(org_file_name,im_path,height=4)
 
 def period_verify(result,period_thresh_ms=50):
     d = []

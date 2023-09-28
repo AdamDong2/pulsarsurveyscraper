@@ -7,8 +7,9 @@ from PIL import Image
 import random
 from astropy.coordinates import SkyCoord as sk
 import os
-def generate_images(pc,num_stack=2):
+def generate_images(pc,num_stack=4):
     image_arr = pc.image_array
+    print(f"{pc.name} has {len(image_arr)} images")
     outfn = pc.name+".jpg"
     if len(image_arr)<num_stack:
         return False
@@ -91,8 +92,7 @@ with open(org_file,'r') as org_f:
 
 def write_yaml(pulsar_candidate,outfn):
     #remove the if it exists
-    if os.path.exists(outfn):
-        os.remove(outfn)
+
     pulsar_candidate.dm=round(pulsar_candidate.dm,2)
 
     out_dict = {pulsar_candidate.name:
@@ -104,10 +104,15 @@ def write_yaml(pulsar_candidate,outfn):
                 }
     with open(outfn,'a') as f:
         yaml.dump(out_dict,f)
-
-
+outfn = sys.argv[1].strip(".org")+".yaml"
+if os.path.exists(outfn):
+    os.remove(outfn)
 for p in pulsar_candidates:
     if generate_images(p):
         #only run if there are enough images
-        write_yaml(p,sys.argv[1].strip(".org")+".yaml")
+        write_yaml(p,outfn)
+
+#print data to upload to spread sheet
+for p in pulsar_candidates:
+    print(f"{p.name},,{p.dm},{p.ra_hms},{p.dec_dms},{p.ra},{p.dec}")
 #write YAML file

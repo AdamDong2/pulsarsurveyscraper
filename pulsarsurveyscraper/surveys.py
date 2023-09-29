@@ -5,12 +5,12 @@ Includes:
 * the type (HTML, JSON, ATNF)
 * period_units (ms or s)
 * start_row
-* pulsar_column, period_column, DM_column, ra_column, dec_column (the last two optional)
+* pulsar_column, period_column, DM_column, ra_column, dec_column (the last two optional, 0-origin)
 * coordinate_frame, ra_unit, dec_unit (if ra_column/dec_column supplied)
 * table_index: which table number on a given page
 """
 # update this as needed
-ATNF_version = "1.64"
+ATNF_version = "1.70"
 Surveys = {
     "ATNF": {
         "url": "https://www.atnf.csiro.au/research/pulsar/psrcat/proc_form.php?version={}&Name=Name&RaJ=RaJ&DecJ=DecJ&P0=P0&DM=DM&startUserDefined=true&c1_val=&c2_val=&c3_val=&c4_val=&sort_attr=jname&sort_order=asc&condition=&pulsar_names=&ephemeris=short&coords_unit=raj%2Fdecj&radius=&coords_1=&coords_2=&style=Short+without+errors&no_value=*&fsize=3&x_axis=&x_scale=linear&y_axis=&y_scale=linear&state=query&table_bottom.x=51&table_bottom.y=23".format(
@@ -52,11 +52,11 @@ Surveys = {
         "table_index": 1,
     },
     "GBT820": {
-        "url": "http://astro.phys.wvu.edu/GBNCC/",
+        "url": "https://gbncc.github.io/GBT820_results/gbt820.html",
         "type": "HTML",
-        "pulsar_column": 1,
-        "period_column": 2,
-        "DM_column": 3,
+        "pulsar_column": 0,
+        "period_column": 1,
+        "DM_column": 2,
         "start_row": 1,
         "period_units": "ms",
         "table_index": 0,
@@ -281,6 +281,15 @@ Surveys = {
         "DM_column": 5,
         "ra_column": 2,
         "dec_column": 3,
+        "period_units": "ms",
+        "start_row": 1,
+    },
+    "GMRTGC": {
+        "url": "http://www.ncra.tifr.res.in/~jroy/GC.html",
+        "type": "HTML",
+        "pulsar_column": 1,
+        "period_column": 2,
+        "DM_column": 3,
         "period_units": "ms",
         "start_row": 1,
     },

@@ -1081,6 +1081,7 @@ class PulsarTable:
         self.directory = os.path.abspath(directory)
         data = []
         for survey in Surveys:
+            print(f"loading survey {survey}")
             surveyfile = os.path.join(self.directory, "{}.hdf5".format(survey))
             if os.path.exists(surveyfile):
                 data.append(Table.read(surveyfile, path="data"))
@@ -1100,6 +1101,7 @@ class PulsarTable:
                     survey_specs=Surveys[survey],
                 )
                 data.append(out.data)
+
             data[-1].add_column(
                 Column(np.array([survey] * len(data[-1])), name="survey")
             )

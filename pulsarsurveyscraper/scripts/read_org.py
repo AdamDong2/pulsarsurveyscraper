@@ -54,7 +54,9 @@ with open(org_file,'r') as org_f:
     #skip the first two lines
     coord_next = False
     file_array = []
+
     for i,line in enumerate(org_f):
+        test_line = line.replace(" ","")
         if i<1:
             continue
         if line[0]=="*":
@@ -71,7 +73,7 @@ with open(org_file,'r') as org_f:
             file_array = []
             hmsdms_str= ["",""]
             name = line[2:-1]
-        elif line=="|ra|dec|dm|\n":
+        elif test_line=="|ra|dec|dm|\n":
             #coordinates incoming
             coord_next = True
         elif coord_next:
@@ -83,6 +85,8 @@ with open(org_file,'r') as org_f:
             dm = float(radecdm[3])
             coord_next = False
         elif line[0:2]=="[[":
+            if "beam_activation" in line:
+                continue
             my_f = line[7:-3]
             file_array.append(my_f)
     #the last source would never get registered so lets register that here

@@ -1096,10 +1096,16 @@ class PulsarTable:
                         survey, surveyfile
                     )
                 )
-                out = PulsarSurvey.read(
-                    survey_name=survey,
-                    survey_specs=Surveys[survey],
-                )
+                try:
+                    out = PulsarSurvey.read(
+                        survey_name=survey,
+                        survey_specs=Surveys[survey],
+                    )
+                except IndexError:
+                    # when some pages are replaced this can happen
+                    continue
+                if out.data is None:
+                    continue
                 data.append(out.data)
 
             data[-1].add_column(

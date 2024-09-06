@@ -9,8 +9,9 @@ Includes:
 * coordinate_frame, ra_unit, dec_unit (if ra_column/dec_column supplied)
 * table_index: which table number on a given page
 """
+
 # update this as needed
-ATNF_version = "1.70"
+ATNF_version = "2.1.0"
 Surveys = {
     "ATNF": {
         "url": "https://www.atnf.csiro.au/research/pulsar/psrcat/proc_form.php?version={}&Name=Name&RaJ=RaJ&DecJ=DecJ&P0=P0&DM=DM&startUserDefined=true&c1_val=&c2_val=&c3_val=&c4_val=&sort_attr=jname&sort_order=asc&condition=&pulsar_names=&ephemeris=short&coords_unit=raj%2Fdecj&radius=&coords_1=&coords_2=&style=Short+without+errors&no_value=*&fsize=3&x_axis=&x_scale=linear&y_axis=&y_scale=linear&state=query&table_bottom.x=51&table_bottom.y=23".format(
@@ -33,7 +34,7 @@ Surveys = {
         "dec_unit": "deg",
     },
     "AO327": {
-        "url": "http://www.naic.edu/~deneva/drift-search/index.html",
+        "url": "http://ao327.nanograv.org/newpulsars/",
         "type": "HTML",
         "pulsar_column": 1,
         "period_column": 2,
@@ -71,7 +72,7 @@ Surveys = {
         "period_units": "ms",
     },
     "PALFA": {
-        "url": "http://www2.naic.edu/~palfa/newpulsars/index.html",
+        "url": "https://palfa.nanograv.org",
         "type": "HTML",
         "pulsar_column": 1,
         "period_column": 2,
@@ -162,7 +163,7 @@ Surveys = {
         "dec_column": 5,
     },
     "MWA": {
-        "url": "https://wiki.mwatelescope.org/display/MP/SMART+survey+candidates",
+        "url": "https://mwatelescope.atlassian.net/wiki/spaces/MP/pages/24970773/SMART+survey+candidates",
         "type": "HTML",
         "pulsar_column": 0,
         "period_column": 1,
@@ -284,11 +285,42 @@ Surveys = {
         "period_units": "ms",
         "start_row": 1,
     },
-    "GMRTGC": {
+    "GCGPS": {
         "url": "http://www.ncra.tifr.res.in/~jroy/GC.html",
         "type": "HTML",
         "pulsar_column": 1,
         "period_column": 2,
+        "DM_column": 3,
+        "period_units": "ms",
+        "start_row": 1,
+    },
+    "PKS70": {
+        "url": "http://venus.fandm.edu/~pulsar/pks70/discoveries_table.html",
+        "type": "HTML",
+        "pulsar_column": 0,
+        "ra_column": 1,
+        "dec_column": 2,
+        "period_column": 3,
+        "DM_column": 4,
+        "period_units": "ms",
+        "start_row": 1,
+    },
+    "GM-SCOPE": {
+        "url": "http://www.ncra.tifr.res.in/~ymaan/scope.html",
+        "type": "HTML",
+        "pulsar_column": 0,
+        "period_column": 1,
+        "DM_column": 2,
+        "period_units": "ms",
+        "start_row": 1,
+    },
+    "CHAMPSS": {
+        "url": "https://sps.chimenet.ca/pulsars/",
+        "type": "HTML",
+        "pulsar_column": 0,
+        "ra_column": 1,
+        "dec_column": 2,
+        "period_column": 4,
         "DM_column": 3,
         "period_units": "ms",
         "start_row": 1,
